@@ -6,7 +6,10 @@ import MyMixBarChart from './pages/rechart/MixBarChart';
 import MyComposedChart from './pages/rechart/ComposedChart';
 import MyPieChart from './pages/rechart/PieChart';
 import MyRadarChart from './pages/rechart/RadarChart';
+import MyLineChart from './pages/d3/LineChart';
 import { Divider } from '@mui/material';
+
+import { lineData } from './data/lineData';
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
           <Route path='/composed-chart' element={<MyComposedChart />} />
           <Route path='/pie-chart' element={<MyPieChart />} />
           <Route path='/Radar-chart' element={<MyRadarChart />} />
+          <Route path='/d3-line-chart' element={<MyLineChart height={400} values={lineData} />} />
         </Routes>
       </main>
     </BrowserRouter>

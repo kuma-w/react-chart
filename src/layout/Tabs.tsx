@@ -26,7 +26,9 @@ const LabTabs = () => {
           <LinkButton name='Pie Chart' url='/pie-chart' />
           <LinkButton name='Radar Chart' url='/radar-chart' />
         </TabPanel>
-        <TabPanel value='2'></TabPanel>
+        <TabPanel value='2'>
+          <LinkButton name='Line Chart' url='/d3-line-chart' />
+        </TabPanel>
       </TabContext>
     </>
   );
