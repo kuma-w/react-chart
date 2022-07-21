@@ -1,11 +1,10 @@
 import React from 'react';
-import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList } from 'recharts';
 import { driveLogMonth } from '../../data';
 import { pastelColors } from '../../utill/pastelColors';
-import _ from 'lodash';
 
 export default function MyComposedChart() {
-  const data: any = _.cloneDeep(driveLogMonth);
+  const data: any = JSON.parse(JSON.stringify(driveLogMonth));
 
   for (let index in data) {
     const sum = Object.values(data[index]).reduce((a, b) => {
@@ -15,7 +14,7 @@ export default function MyComposedChart() {
         return b;
       }
     });
-    data[index].SUM = sum;
+    data[index].SUM = (sum as number).toFixed(2);
   }
 
   return (
@@ -50,7 +49,9 @@ export default function MyComposedChart() {
         <Bar dataKey='24_SEJONG_LESTAR_2' stackId='a' fill={pastelColors[11]} />
         <Bar dataKey='25_DAEGU_KATECH_DH' stackId='a' fill={pastelColors[12]} />
         <Bar dataKey='30_ULSAN_APOLLO_750' stackId='a' fill={pastelColors[13]} />
-        <Line name='SUM' type='monotone' dataKey='SUM' stroke='#ff7300' />
+        <Line name='SUM' type='monotone' dataKey='SUM' stroke='#ff7300'>
+          <LabelList dataKey='SUM' position='top' />
+        </Line>
       </ComposedChart>
     </div>
   );

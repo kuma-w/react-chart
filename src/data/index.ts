@@ -103,6 +103,79 @@ export const driveLogMonth = [
   },
 ];
 
+export const driveLogVehicle = [
+  {
+    name: '06_Ulsan_Lestar_1',
+    May: 0,
+    Jun: 160.53,
+  },
+  {
+    name: '08_A2Z_DH_1',
+    May: 224.88,
+    Jun: 397.71,
+  },
+  {
+    name: '09_A2Z_DH_2',
+    May: 105.46,
+    Jun: 107.06,
+  },
+  {
+    name: '15_BIG_DN8_1',
+    May: 753.32,
+    Jun: 754.45,
+  },
+  {
+    name: '16_Sejong_Lestar_1',
+    May: 95.5,
+    Jun: 804.22,
+  },
+  {
+    name: '17_HYUNDAI_TM',
+    May: 142.62,
+    Jun: 0,
+  },
+  {
+    name: '18_DAEGU_5G_DN8_1',
+    May: 738.06,
+    Jun: 1712.64,
+  },
+  {
+    name: '20_BIG_DN8_2',
+    May: 0,
+    Jun: 0,
+  },
+  {
+    name: '21_DAEGU_5G_DN8_2',
+    May: 784.03,
+    Jun: 1458.57,
+  },
+  {
+    name: '22_DAEGU_5G_DN8_3',
+    May: 549.82,
+    Jun: 1357.26,
+  },
+  {
+    name: '23_DAEGU_KATECH_DN8',
+    May: 0,
+    Jun: 0,
+  },
+  {
+    name: '24_SEJONG_LESTAR_2',
+    May: 1056,
+    Jun: 812.52,
+  },
+  {
+    name: '25_DAEGU_KATECH_DH',
+    May: 0,
+    Jun: 0,
+  },
+  {
+    name: '30_ULSAN_APOLLO_750',
+    May: 383.1,
+    Jun: 0,
+  },
+];
+
 export const interruptionMonth = [
   {
     name: 'Jan-22',
