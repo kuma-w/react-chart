@@ -2,6 +2,7 @@ import React from 'react';
 import { ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList } from 'recharts';
 import { driveLogMonth } from '../../data';
 import { pastelColors } from '../../utill/pastelColors';
+import Wrapper from '../../components/Wrapper';
 
 export default function MyComposedChart() {
   const data: any = JSON.parse(JSON.stringify(driveLogMonth));
@@ -18,7 +19,7 @@ export default function MyComposedChart() {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <Wrapper>
       <ComposedChart
         width={960}
         height={640}
@@ -53,6 +54,6 @@ export default function MyComposedChart() {
           <LabelList dataKey='SUM' position='top' />
         </Line>
       </ComposedChart>
-    </div>
+    </Wrapper>
   );
 }

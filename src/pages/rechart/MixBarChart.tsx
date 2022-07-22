@@ -2,10 +2,11 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { driveLogMonth } from '../../data';
 import { pastelColors } from '../../utill/pastelColors';
+import Wrapper from '../../components/Wrapper';
 
 export default function MyMixBarChart() {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <Wrapper>
       <BarChart
         width={1000}
         height={600}
@@ -37,6 +38,6 @@ export default function MyMixBarChart() {
         <Bar dataKey='25_DAEGU_KATECH_DH' stackId='c' fill={pastelColors[12]} />
         <Bar dataKey='30_ULSAN_APOLLO_750' stackId='c' fill={pastelColors[13]} />
       </BarChart>
-    </div>
+    </Wrapper>
   );
 }

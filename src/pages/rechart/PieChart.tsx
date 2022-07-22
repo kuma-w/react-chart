@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, Sector } from 'recharts';
+import Wrapper from '../../components/Wrapper';
 
 const data = [
   { name: '맑음', value: 21633.06 },
@@ -103,7 +104,7 @@ export default function MyPieChart() {
     [setActiveIndex],
   );
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+    <Wrapper>
       <PieChart width={400} height={400}>
         <Tooltip />;
         <Legend />;
@@ -145,6 +146,6 @@ export default function MyPieChart() {
           onMouseEnter={onPieEnter}
         />
       </PieChart>
-    </div>
+    </Wrapper>
   );
 }

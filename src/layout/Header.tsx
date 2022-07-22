@@ -1,10 +1,9 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
 import { Box, Tab } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import LinkButton from '../components/LinkButton';
 
-const LabTabs = () => {
+const Header = () => {
   const [tabPage, setTabPage] = React.useState('1');
 
   const handleChange = (e: React.SyntheticEvent, newPage: string) => {
@@ -28,10 +27,11 @@ const LabTabs = () => {
         </TabPanel>
         <TabPanel value='2'>
           <LinkButton name='Line Chart' url='/d3-line-chart' />
+          <LinkButton name='Map Chart' url='/d3-map-chart' />
         </TabPanel>
       </TabContext>
     </>
   );
 };
 
-export default LabTabs;
+export default Header;
