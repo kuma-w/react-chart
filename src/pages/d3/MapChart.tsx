@@ -79,7 +79,6 @@ function Map() {
       .attr('stroke-width', 3)
       .attr('fill-opacity', 0.4);
   }, []);
-  console.log('test');
   return (
     <Wrapper>
       <Svg className='map-canvas' ref={svgRef}>
