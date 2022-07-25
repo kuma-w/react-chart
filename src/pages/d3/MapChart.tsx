@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { select } from 'd3';
+import { GeoGeometryObjects, GeoPermissibleObjects, select } from 'd3';
 import * as d3 from 'd3';
 import { styled } from '@mui/material';
 import Wrapper from '../../components/Wrapper';
@@ -15,20 +15,23 @@ const Svg = styled('svg')`
   border-style: ridge;
   border-color: #fff;
   color: #fff;
-  background-color: '#D37506';
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+  circle {
+    fill: #64b4f6;
+    stroke: #4680ac;
+    stroke-width: 2;
+    fill-opacity: 0.7;
+    &:hover {
+      fill: #148df1;
+      transition: all 0.2s;
+    }
+  }
 `;
 
 const Path = styled('path')`
-  fill: #b8b8b8;
-  stroke: cornsilk;
+  fill: rgb(240, 240, 240);
+  stroke: rgb(224, 224, 224);
   stroke-width: 1px;
-
-  &:hover {
-    cursor: pointer;
-    // fill: rgb(255, 145, 0);
-    fill-opacity: 0.5;
-  }
 `;
 
 const setMapProjection = function (mapData: any) {
@@ -53,12 +56,34 @@ function Map() {
   const svgRef = useRef(null);
 
   const mapData = mapJson;
-  const circleData = [5, 20, 25, 30, 40];
+  const circleData = [
+    {
+      x: 230,
+      y: 140,
+      value: 40,
+    },
+    {
+      x: 360,
+      y: 300,
+      value: 30,
+    },
+    {
+      x: 250,
+      y: 220,
+      value: 20,
+    },
+    {
+      x: 200,
+      y: 370,
+      value: 35,
+    },
+  ];
 
   const path = d3.geoPath().projection(setMapProjection(mapData));
 
   const healthRegions = mapData.features.map((data) => {
-    if (data !== undefined) return <Path className='path' d={path(data)} />;
+    if (data !== null) return <Path className='path' d={path(data)} />;
+    // if (data !== null) return <Path className='path' d={path(data as GeoPermissibleObjects)} />;
   });
 
   useEffect(() => {
@@ -71,13 +96,9 @@ function Map() {
         (update) => update.attr('class', 'updated'),
         (exit) => exit.remove(),
       )
-      .attr('r', (value) => value)
-      .attr('cx', (value) => value * 2)
-      .attr('cy', (value) => value * 2)
-      .style('fill', '69b3a2')
-      .attr('stroke', '#69b3a2')
-      .attr('stroke-width', 3)
-      .attr('fill-opacity', 0.4);
+      .attr('r', (d) => d.value)
+      .attr('cx', (d) => d.x)
+      .attr('cy', (d) => d.y);
   }, []);
   return (
     <Wrapper>
