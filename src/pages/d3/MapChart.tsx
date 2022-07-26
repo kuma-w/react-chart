@@ -17,10 +17,10 @@ const Svg = styled('svg')`
   color: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
   circle {
-    fill: #64b4f6;
+    // fill: #64b4f6;
     stroke: #4680ac;
     stroke-width: 2;
-    fill-opacity: 0.7;
+    // fill-opacity: 0.7;
     &:hover {
       fill: #148df1;
       transition: all 0.2s;
@@ -79,10 +79,10 @@ function Map() {
     },
   ];
 
-  const path = d3.geoPath().projection(setMapProjection(mapData));
+  const path: any = d3.geoPath().projection(setMapProjection(mapData));
 
   const healthRegions = mapData.features.map((data) => {
-    if (data !== null) return <Path className='path' d={path(data)} />;
+    if (data !== null) return <Path className='path' d={path(data as GeoGeometryObjects)} />;
     // if (data !== null) return <Path className='path' d={path(data as GeoPermissibleObjects)} />;
   });
 
@@ -98,7 +98,25 @@ function Map() {
       )
       .attr('r', (d) => d.value)
       .attr('cx', (d) => d.x)
-      .attr('cy', (d) => d.y);
+      .attr('cy', (d) => d.y)
+      .attr('transform-origin', '50% 50%')
+      .attr('transform', 'scale(.2)');
+
+    svg
+      .selectAll('circle')
+      .transition()
+      .duration(1000)
+      .attr('transform', 'scale(1)')
+      .style('fill', '#64b4f6')
+      .style('fill-opacity', 0.7);
+
+    svg
+      .selectAll('g')
+      .attr('transform-origin', '50% 50%')
+      .attr('transform', 'scale(0.2)')
+      .transition()
+      .duration(1000)
+      .attr('transform', 'scale(1)');
   }, []);
   return (
     <Wrapper>
