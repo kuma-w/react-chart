@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { GeoGeometryObjects, GeoPermissibleObjects, select } from 'd3';
 import * as d3 from 'd3';
 import { styled } from '@mui/material';
-import Wrapper from '../../components/Wrapper';
-// import * as d3 from 'd3-geo';
+import { ChartWrapper, TitleWrapper } from '../../components/Wrapper';
 import mapJson from '../../assets/korea.json';
+import { Typography } from '@mui/material';
 
 const Svg = styled('svg')`
   display: flex;
@@ -154,11 +154,16 @@ function Map() {
     svg.selectAll('text').transition().duration(1000).attr('transform', 'scale(1)');
   }, []);
   return (
-    <Wrapper>
-      <Svg className='map-canvas' ref={svgRef}>
-        <g>{healthRegions}</g>
-      </Svg>
-    </Wrapper>
+    <ChartWrapper>
+      <TitleWrapper>
+        <Typography variant='h5' sx={{ ml: 5 }}>
+          연간 지역별 제어권 전환 횟수
+        </Typography>
+        <Svg className='map-canvas' ref={svgRef}>
+          <g>{healthRegions}</g>
+        </Svg>
+      </TitleWrapper>
+    </ChartWrapper>
   );
 }
 

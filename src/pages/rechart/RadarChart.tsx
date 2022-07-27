@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
-import Wrapper from '../../components/Wrapper';
+import { ChartWrapper } from '../../components/Wrapper';
 
 const data = [
   {
@@ -43,7 +43,7 @@ const data = [
 
 export default function MyRadarChart() {
   return (
-    <Wrapper>
+    <ChartWrapper>
       <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey='subject' />
@@ -52,6 +52,6 @@ export default function MyRadarChart() {
         <Radar name='Lily' dataKey='B' stroke='#82ca9d' fill='#82ca9d' fillOpacity={0.6} />
         <Legend />
       </RadarChart>
-    </Wrapper>
+    </ChartWrapper>
   );
 }

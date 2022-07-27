@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList 
 import { driveLogMonth } from '../../data';
 import { pastelColors } from '../../utill/pastelColors';
 import { fetchGradientColors } from '../../utill/gradientColors';
-import Wrapper from '../../components/Wrapper';
+import { ChartWrapper } from '../../components/Wrapper';
 
 const MyBarChart = () => {
   const gradientColors1 = fetchGradientColors(14, '#d8ddf1', '#28376f');
@@ -11,7 +11,7 @@ const MyBarChart = () => {
   const gradientColors3 = fetchGradientColors(14, '#c5ecfe', '#01354c');
 
   return (
-    <Wrapper>
+    <ChartWrapper>
       <BarChart
         width={900}
         height={640}
@@ -137,7 +137,7 @@ const MyBarChart = () => {
         <Bar dataKey='25_DAEGU_KATECH_DH' stackId='a' fill={gradientColors3[12]} />
         <Bar dataKey='30_ULSAN_APOLLO_750' stackId='a' fill={gradientColors3[13]} />
       </BarChart>
-    </Wrapper>
+    </ChartWrapper>
   );
 };
 

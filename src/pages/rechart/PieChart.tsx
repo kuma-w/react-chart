@@ -1,6 +1,7 @@
+import { Typography } from '@mui/material';
 import React, { useCallback, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, Sector } from 'recharts';
-import Wrapper from '../../components/Wrapper';
+import { ChartWrapper, TitleWrapper } from '../../components/Wrapper';
 
 const data = [
   { name: '맑음', value: 21633.06 },
@@ -104,48 +105,53 @@ export default function MyPieChart() {
     [setActiveIndex],
   );
   return (
-    <Wrapper>
-      <PieChart width={400} height={400}>
-        <Tooltip />;
-        <Legend />;
-        <Pie data={data} cx={200} cy={200} labelLine label outerRadius={80} fill='#8884d8' dataKey='value'>
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-      <PieChart width={400} height={400}>
-        <Tooltip />;
-        <Legend />;
-        <Pie
-          data={data}
-          cx={200}
-          cy={200}
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={80}
-          fill='#8884d8'
-          dataKey='value'
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-      <PieChart width={400} height={400}>
-        <Pie
-          activeIndex={activeIndex}
-          activeShape={renderActiveShape}
-          data={data}
-          cx={200}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill='#8884d8'
-          dataKey='value'
-          onMouseEnter={onPieEnter}
-        />
-      </PieChart>
-    </Wrapper>
+    <TitleWrapper>
+      <Typography variant='h5' sx={{ ml: 40 }}>
+        날씨별 누적 자율모드 주행거리
+      </Typography>
+      <ChartWrapper>
+        <PieChart width={400} height={400}>
+          <Tooltip />;
+          <Legend />;
+          <Pie data={data} cx={200} cy={200} labelLine label outerRadius={80} fill='#8884d8' dataKey='value'>
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+        <PieChart width={400} height={400}>
+          <Tooltip />;
+          <Legend />;
+          <Pie
+            data={data}
+            cx={200}
+            cy={200}
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={80}
+            fill='#8884d8'
+            dataKey='value'
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+        <PieChart width={400} height={400}>
+          <Pie
+            activeIndex={activeIndex}
+            activeShape={renderActiveShape}
+            data={data}
+            cx={200}
+            cy={200}
+            innerRadius={60}
+            outerRadius={80}
+            fill='#8884d8'
+            dataKey='value'
+            onMouseEnter={onPieEnter}
+          />
+        </PieChart>
+      </ChartWrapper>
+    </TitleWrapper>
   );
 }
