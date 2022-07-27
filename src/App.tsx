@@ -4,9 +4,10 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import MyBarChart from './pages/rechart/BarChart';
 import MyMixBarChart from './pages/rechart/MixBarChart';
 import MyComposedChart from './pages/rechart/ComposedChart';
+import MyLineChart from './pages/rechart/LineChart';
 import MyPieChart from './pages/rechart/PieChart';
 import MyRadarChart from './pages/rechart/RadarChart';
-import MyLineChart from './pages/d3/LineChart';
+import MyD3LineChart from './pages/d3/LineChart';
 import MyMapChart from './pages/d3/MapChart';
 import { Divider } from '@mui/material';
 
@@ -22,9 +23,10 @@ function App() {
           <Route path='/bar-chart' element={<MyBarChart />} />
           <Route path='/mix-bar-chart' element={<MyMixBarChart />} />
           <Route path='/composed-chart' element={<MyComposedChart />} />
+          <Route path='/line-chart' element={<MyLineChart />} />
           <Route path='/pie-chart' element={<MyPieChart />} />
           <Route path='/Radar-chart' element={<MyRadarChart />} />
-          <Route path='/d3-line-chart' element={<MyLineChart height={400} values={lineData} />} />
+          <Route path='/d3-line-chart' element={<MyD3LineChart height={400} values={lineData} />} />
           <Route path='/d3-map-chart' element={<MyMapChart />} />
         </Routes>
       </main>

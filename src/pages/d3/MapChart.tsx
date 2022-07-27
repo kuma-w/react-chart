@@ -58,24 +58,39 @@ function Map() {
   const mapData = mapJson;
   const circleData = [
     {
-      x: 230,
+      location: '경기',
+      x: 270,
       y: 140,
-      value: 40,
-    },
-    {
-      x: 360,
-      y: 300,
       value: 30,
+      text: 2,
     },
     {
+      location: '세종',
       x: 250,
       y: 220,
-      value: 20,
+      value: 50,
+      text: 203,
     },
     {
+      location: '대구',
+      x: 360,
+      y: 300,
+      value: 40,
+      text: 56,
+    },
+    {
+      location: '광주',
       x: 200,
       y: 370,
-      value: 35,
+      value: 20,
+      text: 0,
+    },
+    {
+      location: '울산',
+      x: 420,
+      y: 340,
+      value: 30,
+      text: 3,
     },
   ];
 
@@ -103,6 +118,24 @@ function Map() {
       .attr('transform', 'scale(.2)');
 
     svg
+      .selectAll('text')
+      .data(circleData)
+      .join(
+        (enter) => enter.append('text'),
+        (update) => update.attr('class', 'updated'),
+        (exit) => exit.remove(),
+      )
+      .text((d) => d.text)
+      .attr('x', (d) => d.x)
+      .attr('y', (d) => d.y + 3)
+      .attr('font-family', 'sans-serif')
+      .attr('font-size', '12px')
+      .attr('fill', 'black')
+      .attr('text-anchor', 'middle')
+      .attr('transform-origin', '50% 50%')
+      .attr('transform', 'scale(.2)');
+
+    svg
       .selectAll('circle')
       .transition()
       .duration(1000)
@@ -117,6 +150,8 @@ function Map() {
       .transition()
       .duration(1000)
       .attr('transform', 'scale(1)');
+
+    svg.selectAll('text').transition().duration(1000).attr('transform', 'scale(1)');
   }, []);
   return (
     <Wrapper>

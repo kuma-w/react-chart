@@ -22,6 +22,7 @@ const Header = () => {
           <LinkButton name='Bar Chart' url='/bar-chart' />
           <LinkButton name='Mix Bar Chart' url='/mix-bar-chart' />
           <LinkButton name='Composed Chart' url='/composed-chart' />
+          <LinkButton name='Line Chart' url='/line-chart' />
           <LinkButton name='Pie Chart' url='/pie-chart' />
           <LinkButton name='Radar Chart' url='/radar-chart' />
         </TabPanel>
