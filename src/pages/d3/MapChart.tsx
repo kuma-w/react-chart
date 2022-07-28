@@ -8,14 +8,13 @@ import { Typography } from '@mui/material';
 
 const Svg = styled('svg')`
   display: flex;
-
   height: 630px;
   width: 560px;
   border: none;
-  border-style: ridge;
-  border-color: #fff;
+  // border-style: ridge;
+  // border-color: #fff;
   color: #fff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+  // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
   circle {
     // fill: #64b4f6;
     stroke: #4680ac;
@@ -157,7 +156,15 @@ function Map() {
     <ChartWrapper>
       <TitleWrapper>
         <Typography variant='h5' sx={{ ml: 5 }}>
-          연간 지역별 제어권 전환 횟수
+          제어권 전환 횟수
+        </Typography>
+        <Svg className='map-canvas' ref={svgRef}>
+          <g>{healthRegions}</g>
+        </Svg>
+      </TitleWrapper>
+      <TitleWrapper>
+        <Typography variant='h5' sx={{ ml: 5 }}>
+          자율모드 주행거리
         </Typography>
         <Svg className='map-canvas' ref={svgRef}>
           <g>{healthRegions}</g>

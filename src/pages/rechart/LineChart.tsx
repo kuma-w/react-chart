@@ -13,7 +13,7 @@ const MyLineChart = () => {
       </Typography>
       <LineChart
         width={900}
-        height={640}
+        height={440}
         data={driveLogWeek}
         margin={{
           top: 20,

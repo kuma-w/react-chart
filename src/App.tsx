@@ -9,16 +9,23 @@ import MyPieChart from './pages/rechart/PieChart';
 import MyRadarChart from './pages/rechart/RadarChart';
 import MyD3LineChart from './pages/d3/LineChart';
 import MyMapChart from './pages/d3/MapChart';
-import { Divider } from '@mui/material';
+import { Divider, styled } from '@mui/material';
 
 import { lineData } from './data/lineData';
+import MyCard from './pages/rechart/Card';
+
+const Main = styled('section')`
+  display: flow-root;
+  background-color: #f9fafc;
+  height: 78em;
+`;
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Divider />
-      <main>
+      <Main>
         <Routes>
           <Route path='/bar-chart' element={<MyBarChart />} />
           <Route path='/mix-bar-chart' element={<MyMixBarChart />} />
@@ -26,10 +33,11 @@ function App() {
           <Route path='/line-chart' element={<MyLineChart />} />
           <Route path='/pie-chart' element={<MyPieChart />} />
           <Route path='/Radar-chart' element={<MyRadarChart />} />
+          <Route path='/card' element={<MyCard />} />
           <Route path='/d3-line-chart' element={<MyD3LineChart height={400} values={lineData} />} />
           <Route path='/d3-map-chart' element={<MyMapChart />} />
         </Routes>
-      </main>
+      </Main>
     </BrowserRouter>
   );
 }
