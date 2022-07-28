@@ -55,7 +55,45 @@ function Map() {
   const svgRef = useRef(null);
 
   const mapData = mapJson;
-  const circleData = [
+  const locationData = [
+    {
+      location: '경기',
+      x: 270,
+      y: 140,
+      value: 30,
+      text: 2,
+    },
+    {
+      location: '세종',
+      x: 250,
+      y: 220,
+      value: 50,
+      text: 203,
+    },
+    {
+      location: '대구',
+      x: 360,
+      y: 300,
+      value: 40,
+      text: 56,
+    },
+    {
+      location: '광주',
+      x: 200,
+      y: 370,
+      value: 20,
+      text: 0,
+    },
+    {
+      location: '울산',
+      x: 420,
+      y: 340,
+      value: 30,
+      text: 3,
+    },
+  ];
+
+  const driveData = [
     {
       location: '경기',
       x: 270,
@@ -104,7 +142,7 @@ function Map() {
     const svg = select(svgRef.current);
     svg
       .selectAll('circle')
-      .data(circleData)
+      .data(locationData)
       .join(
         (enter) => enter.append('circle'),
         (update) => update.attr('class', 'updated'),
@@ -118,7 +156,7 @@ function Map() {
 
     svg
       .selectAll('text')
-      .data(circleData)
+      .data(locationData)
       .join(
         (enter) => enter.append('text'),
         (update) => update.attr('class', 'updated'),
