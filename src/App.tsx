@@ -22,7 +22,7 @@ const Main = styled('section')`
 
 function App() {
   return (
-    <BrowserRouter basename='process.env.PUBLIC_URL'>
+    <BrowserRouter>
       <Header />
       <Divider />
       <Main>
